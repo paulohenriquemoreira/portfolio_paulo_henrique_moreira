@@ -273,7 +273,7 @@ export default function TechStack() {
 
                   sm:grid-cols-4
 
-                  lg:grid-cols-8
+                  lg:grid-cols-10
                 "
                 aria-label="Tecnologias em processo de aprofundamento"
               >

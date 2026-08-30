@@ -24,6 +24,8 @@ import githubIcon from "../assets/icons/github.svg";
 import photoshopIcon from "../assets/icons/photoshop.svg";
 import illustratorIcon from "../assets/icons/illustrator.svg";
 import wordpressIcon from "../assets/icons/wordpress.svg";
+import salesforceIcon from "../assets/icons/salesforce.svg";
+import nextIcon from "../assets/icons/nextjs.svg";
 
 // Importa os ícones das tecnologias que estão em processo de aprofundamento.
 import mysqlIcon from "../assets/icons/mysql.svg";
@@ -152,6 +154,8 @@ export const learningTechnologies = [
   { name: "Tailwind CSS", icon: tailwindIcon, color: "#06B6D4" },
   { name: "Bootstrap", icon: bootstrapIcon, color: "#7952B3" },
   { name: "Wordpress", icon: wordpressIcon, color: "#2496ED" },
+  { name: "Salesforce", icon: salesforceIcon, color: "#2496ED" },
+  { name: "Next.js", icon: nextIcon, color: "#000000" },
 ];
 
 // Centraliza os dados utilizados pelo carrossel de projetos.
