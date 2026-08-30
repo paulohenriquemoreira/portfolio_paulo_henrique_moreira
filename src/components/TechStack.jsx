@@ -1,28 +1,17 @@
 import { motion, useReducedMotion } from "framer-motion";
 
-import {
-  learningTechnologies,
-  technologies,
-} from "../data/portfolioData";
+import { learningTechnologies, technologies } from "../data/portfolioData";
 
 import SectionHeading from "./SectionHeading";
 
 // Renderiza uma tecnologia como item semântico de lista.
 // A propriedade compact permite utilizar uma versão menor
 // do ícone sem duplicar a estrutura do componente.
-function TechnologyItem({
-  technology,
-  compact = false,
-}) {
-  const {
-    name,
-    icon,
-    color,
-  } = technology;
+function TechnologyItem({ technology, compact = false }) {
+  const { name, icon, color } = technology;
 
   // Define tamanhos diferentes para os dois grupos.
-  // O grupo principal utiliza ícones maiores.
-  // O grupo "Em Evolução" utiliza ícones mais compactos.
+  // O grupo "Em Evolução" utiliza ícones menores.
   const iconSize = compact
     ? `
         h-8
@@ -74,15 +63,21 @@ function TechnologyItem({
       {/*
         Utiliza o arquivo SVG como máscara.
 
-        A máscara permite manter o ícone laranja
-        no estado inicial e aplicar a cor original
-        da tecnologia durante o hover.
+        Mantém o ícone laranja no estado inicial e
+        utiliza a cor correspondente à tecnologia
+        durante a interação por hover.
+
+        A URL permanece entre aspas para garantir
+        compatibilidade com os data URLs gerados
+        pelo build de produção do Vite.
       */}
       <span
         aria-hidden="true"
         className={`
           ${iconSize}
 
+          block
+          shrink-0
           bg-brand-500
 
           transition-all
@@ -93,36 +88,25 @@ function TechnologyItem({
           group-hover:bg-[var(--technology-color)]
         `}
         style={{
-          WebkitMaskImage:
-            `url(${icon})`,
+          WebkitMaskImage: `url("${icon}")`,
 
-          maskImage:
-            `url(${icon})`,
+          maskImage: `url("${icon}")`,
 
-          WebkitMaskRepeat:
-            "no-repeat",
+          WebkitMaskRepeat: "no-repeat",
 
-          maskRepeat:
-            "no-repeat",
+          maskRepeat: "no-repeat",
 
-          WebkitMaskPosition:
-            "center",
+          WebkitMaskPosition: "center",
 
-          maskPosition:
-            "center",
+          maskPosition: "center",
 
-          WebkitMaskSize:
-            "contain",
+          WebkitMaskSize: "contain",
 
-          maskSize:
-            "contain",
+          maskSize: "contain",
         }}
       />
 
-      {/*
-        Exibe o nome da tecnologia abaixo do ícone
-        como informação textual acessível e indexável.
-      */}
+      {/* Exibe o nome da tecnologia como conteúdo textual acessível. */}
       <span
         className="
           text-[11px]
@@ -145,8 +129,7 @@ function TechnologyItem({
 // Exibe as tecnologias utilizadas e o grupo
 // que está atualmente em processo de aprofundamento.
 export default function TechStack() {
-  const reduceMotion =
-    useReducedMotion();
+  const reduceMotion = useReducedMotion();
 
   return (
     <section
@@ -155,11 +138,7 @@ export default function TechStack() {
       className="section-shell"
     >
       <div className="container-shell">
-
-        {/*
-          Aplica uma animação simples utilizando
-          opacity e scale para reduzir custo de renderização.
-        */}
+        {/* Aplica animação leve utilizando opacity e scale. */}
         <motion.div
           initial={
             reduceMotion
@@ -187,7 +166,7 @@ export default function TechStack() {
           }}
         >
           {/* ==================================================
-              TÍTULO PRINCIPAL
+              TÍTULO
           ================================================== */}
 
           <SectionHeading
@@ -201,10 +180,6 @@ export default function TechStack() {
               TECNOLOGIAS & FERRAMENTAS
           ================================================== */}
 
-          {/*
-            Mantém o primeiro grupo com sete colunas
-            no desktop e com os ícones no tamanho original.
-          */}
           <div
             className="
               surface-card
@@ -228,18 +203,9 @@ export default function TechStack() {
               "
               aria-label="Tecnologias e ferramentas utilizadas"
             >
-              {technologies.map(
-                (technology) => (
-                  <TechnologyItem
-                    key={
-                      technology.name
-                    }
-                    technology={
-                      technology
-                    }
-                  />
-                ),
-              )}
+              {technologies.map((technology) => (
+                <TechnologyItem key={technology.name} technology={technology} />
+              ))}
             </ul>
           </div>
 
@@ -248,8 +214,6 @@ export default function TechStack() {
           ================================================== */}
 
           <div className="mt-12">
-
-            {/* Apresenta o título do segundo grupo. */}
             <div className="mb-6">
               <p
                 className="
@@ -275,9 +239,7 @@ export default function TechStack() {
                 "
               >
                 Tecnologias que estou{" "}
-                <span className="text-brand-500">
-                  aprofundando
-                </span>
+                <span className="text-brand-500">aprofundando</span>
               </h3>
 
               <p
@@ -289,20 +251,12 @@ export default function TechStack() {
                   text-zinc-400
                 "
               >
-                Tecnologias que fazem
-                parte do meu processo
-                atual de aprendizado e
-                evolução profissional.
+                Tecnologias que fazem parte do meu processo atual de aprendizado
+                e evolução profissional.
               </p>
             </div>
 
-            {/*
-              Distribui as oito tecnologias em uma única
-              linha no desktop.
-
-              Os ícones utilizam a variação compact para
-              manter maior equilíbrio visual.
-            */}
+            {/* Distribui as tecnologias em evolução em até oito colunas no desktop. */}
             <div
               className="
                 surface-card
@@ -323,19 +277,13 @@ export default function TechStack() {
                 "
                 aria-label="Tecnologias em processo de aprofundamento"
               >
-                {learningTechnologies.map(
-                  (technology) => (
-                    <TechnologyItem
-                      key={
-                        technology.name
-                      }
-                      technology={
-                        technology
-                      }
-                      compact
-                    />
-                  ),
-                )}
+                {learningTechnologies.map((technology) => (
+                  <TechnologyItem
+                    key={technology.name}
+                    technology={technology}
+                    compact
+                  />
+                ))}
               </ul>
             </div>
           </div>
