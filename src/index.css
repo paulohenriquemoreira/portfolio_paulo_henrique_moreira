@@ -1,0 +1,257 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Define a identidade visual base e informa ao navegador que o site utiliza tema escuro. */
+:root {
+  color-scheme: dark;
+  font-family:
+    Inter,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+  background: #050505;
+}
+
+/* Mantém a rolagem suave e reserva espaço para o cabeçalho fixo nas navegações por âncora. */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+/* Define o fundo global e otimiza a legibilidade tipográfica. */
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background:
+    radial-gradient(
+      circle at 72% 8%,
+      rgba(255, 90, 0, 0.09),
+      transparent 24%
+    ),
+    #050505;
+  color: #f5f5f5;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Mantém o cálculo das dimensões previsível em todos os elementos. */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Personaliza a seleção sem comprometer o contraste do texto. */
+::selection {
+  background: rgba(255, 90, 0, 0.84);
+  color: #ffffff;
+}
+
+@layer components {
+  /* Centraliza o conteúdo e mantém margens responsivas consistentes. */
+  .container-shell {
+    @apply mx-auto w-full max-w-[1180px] px-5 sm:px-6 lg:px-8;
+  }
+
+  /* Padroniza espaçamento, âncora e separação visual entre as seções. */
+  .section-shell {
+    @apply scroll-mt-24 border-t border-white/5 py-20 sm:py-24 lg:py-28;
+  }
+
+  /* Mantém os cards leves, evitando blur de fundo em todos os componentes. */
+  .surface-card {
+    @apply rounded-xl border border-white/10 bg-white/[0.04] transition duration-300;
+  }
+
+  /* Aplica elevação visual apenas em dispositivos que realmente possuem hover. */
+  @media (hover: hover) and (pointer: fine) {
+    .surface-card:hover {
+      @apply -translate-y-1 border-brand-500/40 shadow-glow;
+    }
+  }
+
+  /* Padroniza os pequenos títulos superiores das seções. */
+  .eyebrow {
+    @apply mb-3 text-xs font-bold uppercase tracking-[0.22em] text-brand-500;
+  }
+
+  /* Mantém uma única escala tipográfica para os títulos de segundo nível. */
+  .section-title {
+    @apply text-3xl font-extrabold tracking-tight text-white sm:text-4xl lg:text-5xl;
+  }
+
+  /* Exibe foco perceptível para quem navega por teclado. */
+  .focus-ring {
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 focus-visible:ring-offset-ink-950;
+  }
+}
+
+/* Reduz movimentos e transições quando essa preferência está configurada no sistema operacional. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Desenha circuitos e pontos luminosos usados exclusivamente como decoração. */
+.circuit-cluster {
+  background-image:
+    radial-gradient(
+      circle at 12% 18%,
+      rgba(255, 90, 0, 0.95) 0 2px,
+      transparent 3px
+    ),
+    radial-gradient(
+      circle at 42% 46%,
+      rgba(255, 90, 0, 0.65) 0 1.5px,
+      transparent 2.5px
+    ),
+    radial-gradient(
+      circle at 78% 28%,
+      rgba(255, 90, 0, 0.85) 0 2px,
+      transparent 3px
+    ),
+    linear-gradient(
+      90deg,
+      transparent 0 14%,
+      rgba(255, 90, 0, 0.28) 14% 14.5%,
+      transparent 14.5% 100%
+    ),
+    linear-gradient(
+      0deg,
+      transparent 0 28%,
+      rgba(255, 90, 0, 0.22) 28% 28.5%,
+      transparent 28.5% 100%
+    );
+}
+
+/* Suaviza a entrada do conjunto de circuitos do lado direito. */
+.circuit-cluster-right {
+  -webkit-mask-image:
+    linear-gradient(
+      90deg,
+      transparent,
+      #000 22%,
+      #000 100%
+    );
+  mask-image:
+    linear-gradient(
+      90deg,
+      transparent,
+      #000 22%,
+      #000 100%
+    );
+}
+
+/* Suaviza a entrada do conjunto de circuitos do lado esquerdo. */
+.circuit-cluster-left {
+  -webkit-mask-image:
+    linear-gradient(
+      90deg,
+      #000 0%,
+      #000 72%,
+      transparent 100%
+    );
+  mask-image:
+    linear-gradient(
+      90deg,
+      #000 0%,
+      #000 72%,
+      transparent 100%
+    );
+}
+
+/* Cria um contexto isolado para os elementos sobrepostos da imagem principal. */
+.hero-photo-stage {
+  isolation: isolate;
+}
+
+/* Produz o brilho laranja localizado atrás da imagem principal. */
+.hero-halo {
+  background:
+    radial-gradient(
+      circle,
+      rgba(255, 90, 0, 0.2) 0%,
+      rgba(255, 90, 0, 0.08) 38%,
+      transparent 67%
+    );
+  box-shadow:
+    0 0 70px rgba(255, 90, 0, 0.2),
+    inset 0 0 45px rgba(255, 90, 0, 0.1);
+}
+
+/* Desenha as linhas de circuito posicionadas junto à imagem da Hero. */
+.hero-circuit-lines {
+  background-image:
+    radial-gradient(
+      circle at 95% 8%,
+      rgba(255, 90, 0, 0.95) 0 2px,
+      transparent 3px
+    ),
+    radial-gradient(
+      circle at 86% 28%,
+      rgba(255, 90, 0, 0.85) 0 2px,
+      transparent 3px
+    ),
+    radial-gradient(
+      circle at 99% 49%,
+      rgba(255, 90, 0, 0.8) 0 2px,
+      transparent 3px
+    ),
+    linear-gradient(
+      165deg,
+      transparent 0 26%,
+      rgba(255, 90, 0, 0.72) 26% 26.6%,
+      transparent 26.6% 100%
+    ),
+    linear-gradient(
+      166deg,
+      transparent 0 40%,
+      rgba(255, 90, 0, 0.46) 40% 40.6%,
+      transparent 40.6% 100%
+    ),
+    linear-gradient(
+      168deg,
+      transparent 0 55%,
+      rgba(255, 90, 0, 0.34) 55% 55.5%,
+      transparent 55.5% 100%
+    );
+  filter:
+    drop-shadow(
+      0 0 10px rgba(255, 90, 0, 0.32)
+    );
+}
+
+/* Suaviza a borda inferior da fotografia para integrá-la ao background da Hero. */
+.hero-photo-mask {
+  -webkit-mask-image:
+    linear-gradient(
+      to bottom,
+      #000 0%,
+      #000 80%,
+      transparent 100%
+    );
+  mask-image:
+    linear-gradient(
+      to bottom,
+      #000 0%,
+      #000 80%,
+      transparent 100%
+    );
+}

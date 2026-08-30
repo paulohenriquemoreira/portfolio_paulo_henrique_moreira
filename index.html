@@ -1,0 +1,228 @@
+<!doctype html>
+
+<html lang="pt-BR">
+  <head>
+    <!-- ======================================================
+         CONFIGURAÇÕES BÁSICAS
+    ======================================================= -->
+
+    <!-- Define a codificação utilizada pela página. -->
+    <meta charset="UTF-8" />
+
+    <!-- Garante a renderização responsiva em dispositivos móveis. -->
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+
+    <!-- ======================================================
+         SEO
+    ======================================================= -->
+
+    <!-- Define o título principal exibido no navegador e nos resultados de busca. -->
+    <title>
+      Paulo Henrique Moreira | Desenvolvedor Front-End e OutSystems
+    </title>
+
+    <!-- Descreve resumidamente o conteúdo do portfólio para mecanismos de busca. -->
+    <meta
+      name="description"
+      content="Portfólio de Paulo Henrique Moreira, Desenvolvedor Front-End e OutSystems. Projetos com React, JavaScript, Node.js, APIs REST, desenvolvimento Full Stack e interfaces responsivas."
+    />
+
+    <!-- Informa a autoria do conteúdo. -->
+    <meta
+      name="author"
+      content="Paulo Henrique Moreira"
+    />
+
+    <!-- Permite que mecanismos de busca indexem a página e sigam seus links. -->
+    <meta
+      name="robots"
+      content="index, follow, max-image-preview:large"
+    />
+
+    <!-- Define a cor utilizada pelo navegador em elementos da interface. -->
+    <meta
+      name="theme-color"
+      content="#050505"
+    />
+
+    <!-- ======================================================
+         URL CANÔNICA
+    ======================================================= -->
+
+    <!--
+      Define a URL principal da página depois que o portfólio
+      possuir um endereço definitivo em produção.
+
+      Exemplo:
+
+      <link
+        rel="canonical"
+        href="https://seudominio.com/"
+      />
+    -->
+
+    <!-- ======================================================
+         PERFORMANCE
+    ======================================================= -->
+
+    <!--
+      Prioriza a imagem principal da Hero, que possui grande
+      probabilidade de representar o Largest Contentful Paint.
+    -->
+    <link
+      rel="preload"
+      as="image"
+      href="/paulo-hero.png"
+      fetchpriority="high"
+    />
+
+    <!-- ======================================================
+         FAVICON
+    ======================================================= -->
+
+    <!-- Define o ícone exibido na aba do navegador. -->
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="/favicon.svg"
+    />
+
+    <!-- ======================================================
+         OPEN GRAPH
+         LinkedIn, WhatsApp, Facebook e outras plataformas
+    ======================================================= -->
+
+    <!-- Informa que o conteúdo representa uma página web. -->
+    <meta
+      property="og:type"
+      content="website"
+    />
+
+    <!-- Define o idioma e a região do conteúdo compartilhado. -->
+    <meta
+      property="og:locale"
+      content="pt_BR"
+    />
+
+    <!-- Define o título utilizado ao compartilhar o portfólio. -->
+    <meta
+      property="og:title"
+      content="Paulo Henrique Moreira | Desenvolvedor Front-End e OutSystems"
+    />
+
+    <!-- Define a descrição utilizada nas prévias de compartilhamento. -->
+    <meta
+      property="og:description"
+      content="Portfólio profissional com projetos em React, JavaScript, OutSystems, Node.js, APIs REST e desenvolvimento de aplicações responsivas."
+    />
+
+    <!-- Define o nome apresentado como origem do conteúdo. -->
+    <meta
+      property="og:site_name"
+      content="Portfólio | Paulo Henrique Moreira"
+    />
+
+    <!--
+      As propriedades abaixo recebem URLs absolutas depois
+      que o domínio definitivo estiver disponível.
+
+      Exemplo:
+
+      <meta
+        property="og:url"
+        content="https://seudominio.com/"
+      />
+
+      <meta
+        property="og:image"
+        content="https://seudominio.com/paulo-hero.png"
+      />
+    -->
+
+    <!-- ======================================================
+         TWITTER / X
+    ======================================================= -->
+
+    <!-- Solicita uma prévia grande quando o portfólio é compartilhado. -->
+    <meta
+      name="twitter:card"
+      content="summary_large_image"
+    />
+
+    <!-- Define o título utilizado na prévia do Twitter/X. -->
+    <meta
+      name="twitter:title"
+      content="Paulo Henrique Moreira | Desenvolvedor Front-End e OutSystems"
+    />
+
+    <!-- Define a descrição utilizada na prévia do Twitter/X. -->
+    <meta
+      name="twitter:description"
+      content="Conheça projetos, tecnologias e soluções desenvolvidas com React, JavaScript, OutSystems, Node.js e APIs REST."
+    />
+
+    <!--
+      Define a imagem da prévia depois que o domínio
+      definitivo estiver disponível.
+
+      Exemplo:
+
+      <meta
+        name="twitter:image"
+        content="https://seudominio.com/paulo-hero.png"
+      />
+    -->
+
+    <!-- ======================================================
+         DADOS ESTRUTURADOS - SCHEMA.ORG
+    ======================================================= -->
+
+    <!--
+      Descreve semanticamente o responsável pelo portfólio
+      para mecanismos de busca.
+    -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Paulo Henrique Moreira",
+        "jobTitle": "Desenvolvedor Front-End e OutSystems",
+        "sameAs": [
+          "https://github.com/paulohenriquemoreira",
+          "https://www.linkedin.com/in/paulohenriquemoreira1986/"
+        ],
+        "knowsAbout": [
+          "Desenvolvimento Front-End",
+          "OutSystems",
+          "React",
+          "JavaScript",
+          "Node.js",
+          "API REST",
+          "HTML5",
+          "CSS3",
+          "UX/UI"
+        ]
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--
+      Recebe toda a aplicação React renderizada
+      a partir do arquivo main.jsx.
+    -->
+    <div id="root"></div>
+
+    <!--
+      Carrega o ponto de entrada da aplicação utilizando
+      módulos JavaScript nativos.
+    -->
+    <script
+      type="module"
+      src="/src/main.jsx"
+    ></script>
+  </body>
+</html>
