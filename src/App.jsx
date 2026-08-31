@@ -2,6 +2,8 @@ import BackgroundDecor from "./components/BackgroundDecor";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import About from "./components/About";
+import Experience from "./components/Experience";
+import Education from "./components/Education";
 import Services from "./components/Services";
 import Projects from "./components/Projects";
 import TechStack from "./components/TechStack";
@@ -29,6 +31,8 @@ export default function App() {
         <main id="conteudo-principal">
           <Hero />
           <About />
+          <Education />
+          <Experience />
           <Services />
           <Projects />
           <TechStack />

@@ -49,6 +49,8 @@ import genesisAirImage from "../assets/projetos/genesisair.webp";
 export const navigation = [
   { label: "Home", href: "#home" },
   { label: "Sobre", href: "#about" },
+  { label: "Formação", href: "#education" },
+  { label: "Experiência", href: "#experience" },
   { label: "Serviços", href: "#services" },
   { label: "Projetos", href: "#work" },
   { label: "Skills", href: "#skills" },
